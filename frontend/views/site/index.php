@@ -4,50 +4,135 @@
 
 $this->title = 'Home';
 ?>
-<div class="site-index">
 
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+<!-- MOBILE MENU -->
+<div class="picman_tm_mobile_menu">
+	<div class="mobile_menu_inner">
+		<div class="mobile_in">
+			<div class="logo">
+				<a href="index.html"><img src="img/logo/logooo.png" alt="" /></a>
+			</div>
+			<div class="trigger">
+				<div class="hamburger hamburger--slider">
+					<div class="hamburger-box">
+						<div class="hamburger-inner"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="dropdown">
+		<div class="dropdown_inner">
+			<ul class="anchor_nav">
+				<li class="current"><a href="#home">Home</a></li>
+				<li><a href="#about">About</a></li>
+				<li><a href="#portfolio">Portfolio</a></li>
+				<li><a href="#service">Service</a></li>
+				<li><a href="#blog">Blog</a></li>
+				<li><a href="#contact">Contact</a></li>
+				<li class="button"><a href="#quote"><span>Get A Quote</span></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- /MOBILE MENU -->
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+<!-- SOCIAL -->
+<div class="picman_tm_social">
+    <ul>
+        <li class="facebook"><a href="#"><img src="img/svg/facebook.svg" alt="" class="svg"></a></li>
+        <li class="twitter"><a href="#"><img src="img/svg/twitter.svg" alt="" class="svg"></a></li>
+        <li class="linkedin"><a href="#"><img src="img/svg/linkedin.svg" alt="" class="svg"></a></li>
+        <li class="instagram"><a href="#"><img src="img/svg/instagram.svg" alt="" class="svg"></a></li>
+    </ul>
+</div>
+<!-- SOCIAL -->
+
+
+
+<!-- HERO -->
+<div class="picman_tm_hero" id="home">
+
+    <div class="overlay"></div>
+
+    <!-- Gallery List (hero) -->
+    <div class="gallery_list_wrap">
+        <ul>
+            <li class="active"><div class="main" data-img-url="img/slider/1.webp"></div></li>
+            <li><div class="main" data-img-url="img/slider/2.jpg"></div></li>
+            <li><div class="main" data-img-url="img/slider/3.jpg"></div></li>
+            <li><div class="main" data-img-url="img/slider/4.jpg"></div></li>
+            <li><div class="main" data-img-url="img/slider/5.jpg"></div></li>
+        </ul>
     </div>
+    <!-- Gallery List (hero) -->
 
-    <div class="body-content">
+    <!-- Projects (hero) -->
+    <div class="project_list_wrap">
+        <div class="container">
+            <div class="inner_wrap">
 
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+                <!-- Left Circle Box (hero) -->
+                <div class="left_box">
+                    <!-- <h4>Hello, I'm</h4> -->
+                    <h3>turistman</h3>
+                    <h5>TOUR AND TRAVEL</h5>
+                    <div class="booking">
+                        <a href="#contact" class="button"><span>Book a Shoot</span></a>
+                        <a href="#plans" class="link">View Plans</a>
+                    </div>
+                </div>
+                <!-- Left Circle Box (hero) -->
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+                <!-- Right List (hero) -->
+                <div class="right_box">
+                    <ul class="list">
+                        <li class="active">
+                            <div class="list_inner">
+                                <h3><a>Travel</a></h3>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list_inner">
+                                <h3><a>Holiday</a></h3>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list_inner">
+                                <h3><a>Wildlife</a></h3>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list_inner">
+                                <h3><a>Beaches</a></h3>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list_inner">
+                                <h3><a>Historical</a></h3>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Right List (hero) -->
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
             </div>
         </div>
-
     </div>
+    <!-- Projects (hero) -->
+
+    <!-- Down Button (hero) -->
+    <div class="picman_tm_down">
+        <a class="anchor" href="#about">
+            <img src="img/svg/down.svg" alt="" class="svg" />
+        </a>
+    </div>
+    <!-- Down Button (hero) -->
+
 </div>
+<!-- HERO -->
+
+
+
