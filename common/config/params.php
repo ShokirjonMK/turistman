@@ -10,8 +10,8 @@ return [
     /*i18n*/
     'languages' => [
         'uz' => 'O`zbek',
-        'oz' => 'Ўзбек',
-        'ru' => 'Русский',
-        'en' => 'English'
+//        'oz' => 'Ўзбек',
+//        'ru' => 'Русский',
+//        'en' => 'English'
     ]
 ];

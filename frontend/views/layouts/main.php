@@ -3,6 +3,7 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -39,7 +40,7 @@ AppAsset::register($this);
     <!-- SETTINGS -->
     <div class="picman_tm_settings">
         <div class="icon">
-            <img class="svg" src="img/svg/settings/setting.svg" alt="" />
+            <img class="svg" src="<?= \yii\helpers\Url::to(['img/svg/settings/setting.svg'])?>" alt="" />
             <a class="link" href="#"></a>
         </div>
         <div class="wrapper">
@@ -62,7 +63,7 @@ AppAsset::register($this);
             <span class="title">Magic Cursor</span>
             <ul class="cursor">
                 <li><a class="showme show" href="#"></a></li>
-                <li><a class="hide" href="#"><img class="svg" src="img/svg/settings/arrow.svg" alt="" /></a></li>
+                <li><a class="hide" href="#"><img class="svg" src="<?= \yii\helpers\Url::to(['img/svg/settings/arrow.svg'])?>" alt="" /></a></li>
             </ul>
         </div>
     </div>
@@ -73,17 +74,16 @@ AppAsset::register($this);
         <div class="container">
             <div class="inner">
                 <div class="logo">
-                    <a href="index.html"><img src="img/logo/logooo.png" alt="" /></a>
+                    <a href="index.html"><img src="<?= \yii\helpers\Url::to(['img/logo/logooo.png'])?>" alt="" /></a>
                 </div>
                 <div class="menu">
                     <ul class="anchor_nav">
-                        <li class="current"><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#service">Service</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li class="button"><a href="#quote"><span>Get A Quote</span></a></li>
+                        <li class="current"><a href="#home"><?= Yii::t('ui', 'Home') ?></a></li>
+                        <li><a href="#about"><?= Yii::t('ui', 'About') ?></a></li>
+                        <li><a href="#service"><?= Yii::t('ui', 'Service') ?></a></li>
+                        <li><a href="#blog"><?= Yii::t('ui', 'Blog') ?></a></li>
+                        <li><a href="#contact"><?= Yii::t('ui', 'Contact') ?></a></li>
+                        <li class="button"><a href="<?= \yii\helpers\Url::to(['site/signup'], true) ?>"><span><?= Yii::t('ui', 'Access') ?></span></a></li>
                     </ul>
                 </div>
             </div>
@@ -128,10 +128,10 @@ AppAsset::register($this);
     <!-- SOCIAL -->
     <div class="picman_tm_social">
         <ul>
-            <li class="facebook"><a href="#"><img src="img/svg/facebook.svg" alt="" class="svg"></a></li>
-            <li class="twitter"><a href="#"><img src="img/svg/twitter.svg" alt="" class="svg"></a></li>
-            <li class="linkedin"><a href="#"><img src="img/svg/linkedin.svg" alt="" class="svg"></a></li>
-            <li class="instagram"><a href="#"><img src="img/svg/instagram.svg" alt="" class="svg"></a></li>
+            <li class="facebook"><a href="#"><img src="<?= \yii\helpers\Url::to(['img/svg/facebook.svg'])?>" alt="" class="svg"></a></li>
+            <li class="twitter"><a href="#"><img src="<?= \yii\helpers\Url::to(['img/svg/twitter.svg'])?>" alt="" class="svg"></a></li>
+            <li class="linkedin"><a href="#"><img src="<?= \yii\helpers\Url::to(['img/svg/linkedin.svg'])?>" alt="" class="svg"></a></li>
+            <li class="instagram"><a href="#"><img src="<?= \yii\helpers\Url::to(['img/svg/instagram.svg'])?>" alt="" class="svg"></a></li>
         </ul>
     </div>
     <!-- SOCIAL -->
@@ -233,7 +233,10 @@ AppAsset::register($this);
 </div>
 <!-- FOOTER -->
 
+
+
 <?php $this->endBody() ?>
 </body>
 </html>
 <?php $this->endPage() ?>
+

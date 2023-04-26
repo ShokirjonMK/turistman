@@ -4,13 +4,20 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
 use yii\helpers\ArrayHelper;
-
+use \yii\rbac\ManagerInterface;
+use yii\db\Migration;
 function dd($data)
 {
     echo "<pre>";
     print_r($data);
     die();
 }
+
+function role(): ManagerInterface
+{
+	return Yii::$app->authManager;
+}
+
 
 function api_pagination()
 {
@@ -68,19 +75,18 @@ function api_json_output($type = 'error', $array = array())
 }
 
 // passpot sera_raqami
-function passera_num($model)
-{
-   $index = $model->sera_num;
-   $sera = $index[2].$index[3].$index[4].$index[5].$index[6].$index[7].$index[8].$index[9];
-   return $sera;
-}
-// passport serasi
 function passera($model)
 {
-   $index = $model->sera_num;
-   $sera = $index[0].$index[1];
-   return $sera;
+	$arr = preg_split('/(?<=[a-z])(?=[0-9]+)/i',$model->sera_num);
+	return $arr[0];
 }
+
+function passera_num($model)
+{
+	$arr = preg_split('/(?<=[a-z])(?=[0-9]+)/i',$model->sera_num);
+	return $arr[1];
+}
+
 
 
 // passport malumotlarini olish api

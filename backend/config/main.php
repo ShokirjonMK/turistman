@@ -1,4 +1,5 @@
 <?php
+
 require(__DIR__ . '/../../common/components/helpers/GlobalFunctions.php');
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
@@ -11,13 +12,16 @@ return [
     'id' => 'app-backend',
     'name' => 'Starter Kit - Admin Panel',
     'language'=>'uz',
-    'sourceLanguage'=>'en',
+    'sourceLanguage'=>'uz',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [
         'settings' => [
             'class' => 'backend\modules\settings\Module',
+        ],
+		'catalog' => [
+            'class' => 'backend\modules\catalog\Catalog',
         ],
     ],
     'components' => [
@@ -47,7 +51,6 @@ return [
             'errorAction' => 'site/error',
         ],
         'backendUrlManager' => require __DIR__ . '/UrlManager.php',
-        'frontendUrlManager' => require __DIR__ . '/../../frontend/config/urlManager.php',
         'urlManager' => function () {
             return Yii::$app->get('backendUrlManager');
         },

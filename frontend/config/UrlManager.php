@@ -4,7 +4,8 @@
 
 return [
     'class' => 'codemix\localeurls\UrlManager',
-    'hostInfo' => $params['frontendHostInfo'],
+	'languages'=>['uz'],
+   'hostInfo' => $params['frontendHostInfo'],
 //    'baseUrl' => '',
     'enablePrettyUrl' => true,
     'showScriptName' => false,

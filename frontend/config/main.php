@@ -12,6 +12,8 @@ return [
     'name' => 'Starter Kit',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+	'language'=>'uz',
+	'sourceLanguage'=>'uz',
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
@@ -39,7 +41,6 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        'backendUrlManager' => require __DIR__ . '/../../backend/config/urlManager.php',
         'frontendUrlManager' => require __DIR__ . '/UrlManager.php',
         'urlManager' => function () {
             return Yii::$app->get('frontendUrlManager');
