@@ -46,7 +46,7 @@ class SignupController extends Controller
             if ($model->load($_POST)) {
 
                 $data = passport(passera($model), passera_num($model), $model->date);
-                if ($data){
+                if ($data !== null){
                     $model->saveData($data);
                     Yii::$app->session->setFlash('success', Yii::t('ui', "Данные созданы успешно"));
                     return $this->redirect(['signup/login']);
