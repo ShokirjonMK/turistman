@@ -14,6 +14,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use yii\web\Response;
 
 /**
  * Site controller
@@ -152,8 +153,10 @@ class SiteController extends Controller
      */
     public function actionSignup()
     {
+
         $model = new SignupForm();
 
+		dd(passport('AB', '5707562', '1998-09-29'));
 
         if ($model->load(Yii::$app->request->post())  && $model->validate()) {
             Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
