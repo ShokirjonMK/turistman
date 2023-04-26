@@ -5,7 +5,7 @@ use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
 use yii\helpers\ArrayHelper;
 use \yii\rbac\ManagerInterface;
-use yii\db\Migration;
+
 function dd($data)
 {
     echo "<pre>";
