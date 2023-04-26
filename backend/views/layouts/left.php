@@ -31,6 +31,7 @@
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget' => 'tree'],
                 'items' => [
                     ['label' => Yii::t('ui', 'Dashboard'), 'url' => ['/site/index'], 'icon' => 'home'],
+                    ['label' => Yii::t('ui', 'settings-home'), 'url' => ['/catalog/settings-home/index'], 'icon' => 'home'],
                     ['label' => Yii::t('ui', 'Settings'), 'icon' => 'cogs', 'items' => [
                         [
                             'label' => Yii::t('ui', 'Translations'),

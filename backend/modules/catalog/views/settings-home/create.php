@@ -1,5 +1,7 @@
 <?php
 
+use dmstr\bootstrap\Tabs;
+use kartik\file\FileInput;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
