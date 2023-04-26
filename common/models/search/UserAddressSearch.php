@@ -18,7 +18,7 @@ class UserAddressSearch extends UserAddress
 public function rules()
 {
 return [
-[['id', 'user_id', 'status', 'is_deleted', 'created_at', 'updated_at', 'created_by', 'updated_by'], 'integer'],
+[['id', 'user_id', 'status', 'is_deleted', 'created_at', 'updated_at'], 'integer'],
             [['name', 'family', 'patronymic_name', 'series', 'series_num', 'pin_fl', 'birth_date', 'address'], 'safe'],
 ];
 }
@@ -61,9 +61,7 @@ $query->andFilterWhere([
             'status' => $this->status,
             'is_deleted' => $this->is_deleted,
             'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
-            'created_by' => $this->created_by,
-            'updated_by' => $this->updated_by,
+            'updated_at' => $this->updated_at
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])

@@ -53,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="picman_tm_cform">
                         <h3 class="title">Registratsiya</h3>
 
-						<?php $form = ActiveForm::begin(['errorSummaryCssClass' => 'error-summary alert alert-danger']); ?>
+                        <?php $form = ActiveForm::begin(['errorSummaryCssClass' => 'error-summary alert alert-danger']); ?>
 
                         <div class="returnmessage" data-success="Your message has been received, We will contact you soon."></div>
                         <div class="empty_notice"><span>Please Fill Required Fields</span></div>
@@ -61,21 +61,15 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="input_list">
                             <ul>
                                 <li>
-<!--									--><?php //= $form->field($model, 'sera_num')->widget(\yii\widgets\MaskedInput::className(), [
-//										'mask' => 'A{1,2}9{1,7}',
-//										'options' => ['class'=>'box', 'placeholder' => "passport seria va raqamini kiriting"]
-//									])->label(false);?>
 
-                                </li>
-                                <li>
                                     <?= $form->field($model, 'sera_num')->textInput(['autofocus' => true])->label(false) ?>
+                                    <?= $form->field($model, 'date')->Input('date',['autofocus' => true])->label(false) ?>
+                                    <?php echo $form->errorSummary($model); ?>
                                 </li>
                                 <li><input id="phone" type="number" placeholder="Your Phone" /></li>
                             </ul>
                         </div>
-                        <div class="message_area">
-                            <textarea id="message" placeholder="Your message"></textarea>
-                        </div>
+
 
                         <div class="form-group">
                             <?= Html::submitButton(
@@ -87,7 +81,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 ]
                             );
                             ?>                        </div>
-						<?php ActiveForm::end(); ?>
+                        <?php ActiveForm::end(); ?>
                     </div>
                 </div>
                 <!-- RIght (contact) -->

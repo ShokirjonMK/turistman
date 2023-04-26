@@ -12,6 +12,22 @@ use yii\helpers\ArrayHelper;
 class UserAddress extends BaseUserAddress
 {
 
+    public $sera_num;
+
+    public $date;
+
+    public function beforeSave($insert):bool
+    {
+        if (parent::beforeSave($insert)) {
+            $related = $this->getRelatedRecords();
+            /** @var User $user */
+            if (isset($related['user']) && $user = $related['user']) {
+                $this->user_id = $user->id;
+            }
+            return true;
+        }
+        return false;
+    }
     public function behaviors()
     {
         return ArrayHelper::merge(
@@ -27,8 +43,54 @@ class UserAddress extends BaseUserAddress
         return ArrayHelper::merge(
             parent::rules(),
             [
+                [['sera_num', 'date'], 'required'],
+                [['sera_num'], 'string', 'max' => 255],
+                [['date'],  'safe'],
                 # custom validation rules
             ]
         );
     }
+
+    public function saveData($data)
+    {
+
+        $user = new User();
+        $user->username = randomString();
+        $user->auth_key = \Yii::$app->security->generateRandomString(20);
+        $user->email = randomString().'@gmail.com';
+        $user->setPassword($data->name);
+        $user->generateEmailVerificationToken();
+
+
+        $model = new UserAddress;
+        $model->populateRelation('user', $user);
+        $model->pin_fl = "$data->pinfl";
+        $model->name = "$data->name";
+        $model->family = "$data->sur_name";
+        $model->patronymic_name = "$data->patronymic_name";
+        $model->series = "$data->series";
+        $model->series_num = "$data->number";
+        $model->birth_date = "$data->birth_date";
+        $model->address = "$data->address";
+
+
+        $transaction = Yii::$app->db->beginTransaction();
+        try {
+            if (!$user->save()) {
+                throw new \Exception('Произошла ошибка при сохранении данных. User');
+            }
+            if (!$model->save()) {
+                throw new \Exception('Произошла ошибка при сохранении данных. UserAddress');
+            }
+            Yii::$app->session->setFlash('success', Yii::t('ui', "Данные созданы успешно"));
+            $transaction->commit();
+        } catch (\Exception $e) {
+            Yii::$app->session->setFlash('error', Yii::t('ui', "Произошла ошибка. Пожалуйста, попробуйте еще раз") . $e->getMessage());
+            $transaction->rollBack();
+            throw $e;
+        }
+
+    }
+
+
 }

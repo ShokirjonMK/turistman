@@ -1,18 +1,17 @@
 <?php
 
-/**
- * @var yii\web\View $this
- * @var common\models\SettingsHome $model
- * @var yii\widgets\ActiveForm $form
- */
+/* @var $this yii\web\View */
+/* @var $form yii\bootstrap\ActiveForm */
+/* @var $model \common\models\LoginForm */
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$modelsd = \common\models\SettingsHome::find()->sort_desc()->one();
-$this->title = 'Signup';
+$this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
+$modelsd = \common\models\SettingsHome::find()->sort_desc()->one();
 ?>
+
 
 <style>
     .bgg{
@@ -51,9 +50,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 <!-- RIght (contact) -->
                 <div class="right_part wow fadeInRight" id="quote" data-wow-duration="1s">
                     <div class="picman_tm_cform">
-                        <h3 class="title">Registratsiya</h3>
+                        <h3 class="title">Login</h3>
 
-						<?php $form = ActiveForm::begin(['errorSummaryCssClass' => 'error-summary alert alert-danger']); ?>
+                        <?php $form = ActiveForm::begin(['errorSummaryCssClass' => 'error-summary alert alert-danger']); ?>
 
                         <div class="returnmessage" data-success="Your message has been received, We will contact you soon."></div>
                         <div class="empty_notice"><span>Please Fill Required Fields</span></div>
@@ -61,33 +60,21 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="input_list">
                             <ul>
                                 <li>
-<!--									--><?php //= $form->field($model, 'sera_num')->widget(\yii\widgets\MaskedInput::className(), [
-//										'mask' => 'A{1,2}9{1,7}',
-//										'options' => ['class'=>'box', 'placeholder' => "passport seria va raqamini kiriting"]
-//									])->label(false);?>
+
+                                    <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+
+                                    <?= $form->field($model, 'password')->passwordInput() ?>
 
                                 </li>
-                                <li>
-                                    <?= $form->field($model, 'sera_num')->textInput(['autofocus' => true])->label(false) ?>
-                                </li>
-                                <li><input id="phone" type="number" placeholder="Your Phone" /></li>
                             </ul>
                         </div>
-                        <div class="message_area">
-                            <textarea id="message" placeholder="Your message"></textarea>
-                        </div>
+
 
                         <div class="form-group">
-                            <?= Html::submitButton(
-                                '<span class="glyphicon glyphicon-check"></span> ' .
-                                ($model->isNewRecord ? Yii::t('cruds', 'Create') : Yii::t('cruds', 'Save')),
-                                [
-                                    'id' => 'save-' . $model->formName(),
-                                    'class' => 'btn btn-success'
-                                ]
-                            );
-                            ?>                        </div>
-						<?php ActiveForm::end(); ?>
+                            <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+
+                        </div>
+                        <?php ActiveForm::end(); ?>
                     </div>
                 </div>
                 <!-- RIght (contact) -->

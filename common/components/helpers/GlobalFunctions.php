@@ -241,3 +241,7 @@ function isJsonMK($string)
 }
 
 
+function randomString(){
+    $characters = 'abcdefghijklmnopqrstuvwxyz';
+    return substr(str_shuffle($characters), 0, 6);
+}

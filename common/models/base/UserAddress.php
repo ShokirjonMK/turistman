@@ -21,12 +21,11 @@ use yii\behaviors\TimestampBehavior;
  * @property string $pin_fl
  * @property string $birth_date
  * @property string $address
+ * @property string $sera_num
  * @property integer $status
  * @property integer $is_deleted
  * @property integer $created_at
  * @property integer $updated_at
- * @property integer $created_by
- * @property integer $updated_by
  *
  * @property \common\models\User $user
  * @property string $aliasModel
@@ -51,9 +50,6 @@ abstract class UserAddress extends \yii\db\ActiveRecord
     {
         return [
             [
-                'class' => BlameableBehavior::className(),
-            ],
-            [
                 'class' => TimestampBehavior::className(),
             ],
         ];
@@ -65,8 +61,7 @@ abstract class UserAddress extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id'], 'required'],
-            [['user_id', 'status', 'is_deleted'], 'integer'],
+            [['user_id'], 'integer'],
             [['name', 'family', 'patronymic_name', 'series', 'series_num', 'pin_fl', 'birth_date', 'address'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => \common\models\User::className(), 'targetAttribute' => ['user_id' => 'id']]
         ];
@@ -92,8 +87,7 @@ abstract class UserAddress extends \yii\db\ActiveRecord
             'is_deleted' => 'Is Deleted',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
-            'created_by' => 'Created By',
-            'updated_by' => 'Updated By',
+
         ];
     }
 

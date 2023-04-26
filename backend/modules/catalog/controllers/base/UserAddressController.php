@@ -5,7 +5,7 @@
 namespace backend\modules\catalog\controllers\base;
 
 use common\models\UserAddress;
-    use common\models\search\UserAddressSearch;
+use common\models\search\UserAddressSearch;
 use yii\web\Controller;
 use yii\web\HttpException;
 use yii\helpers\Url;

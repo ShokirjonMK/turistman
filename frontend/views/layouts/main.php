@@ -83,7 +83,7 @@ AppAsset::register($this);
                         <li><a href="#service"><?= Yii::t('ui', 'Service') ?></a></li>
                         <li><a href="#blog"><?= Yii::t('ui', 'Blog') ?></a></li>
                         <li><a href="#contact"><?= Yii::t('ui', 'Contact') ?></a></li>
-                        <li class="button"><a href="<?= \yii\helpers\Url::to(['site/signup'], true) ?>"><span><?= Yii::t('ui', 'Access') ?></span></a></li>
+                        <li class="button"><a href="<?= \yii\helpers\Url::to(['signup/create'], true) ?>"><span><?= Yii::t('ui', 'Access') ?></span></a></li>
                     </ul>
                 </div>
             </div>

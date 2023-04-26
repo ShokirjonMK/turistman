@@ -127,10 +127,10 @@ $actionColumnTemplateString = '<div class="action-buttons">'.$actionColumnTempla
 			'family',
 			'patronymic_name',
 			'series',
-			/*'series_num',*/
-			/*'pin_fl',*/
-			/*'birth_date',*/
-			/*'address',*/
+			'series_num',
+			'pin_fl',
+			'birth_date',
+			'address',
                 ]
         ]); ?>
     </div>
