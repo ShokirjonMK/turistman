@@ -41,7 +41,7 @@ AppAsset::register($this);
     <div class="picman_tm_settings">
         <div class="icon">
             <img class="svg" src="<?= \yii\helpers\Url::to(['img/svg/settings/setting.svg'])?>" alt="" />
-            <a class="link" href="#"></a>
+            <a class="link" href="<?= \yii\helpers\Url::to(['/'], true) ?>"></a>
         </div>
         <div class="wrapper">
             <span class="title">Unlimited Colors</span>
@@ -74,13 +74,13 @@ AppAsset::register($this);
         <div class="container">
             <div class="inner">
                 <div class="logo">
-                    <a href="index.html"><img src="<?= \yii\helpers\Url::to(['img/logo/logooo.png'])?>" alt="" /></a>
+                    <a href="<?= \yii\helpers\Url::to(['/'], true) ?>"><img src="<?= \yii\helpers\Url::to(['img/logo/logooo.png'])?>" alt="" /></a>
                 </div>
                 <div class="menu">
                     <ul class="anchor_nav">
-                        <li class="current"><a href="#home"><?= Yii::t('ui', 'Home') ?></a></li>
+                        <li class="current"><a href="<?= \yii\helpers\Url::to(['/'], true) ?>"><?= Yii::t('ui', 'Home') ?></a></li>
                         <li><a href="#about"><?= Yii::t('ui', 'About') ?></a></li>
-                        <li><a href="#service"><?= Yii::t('ui', 'Service') ?></a></li>
+                        <li><a href="#portfolio"><?= Yii::t('ui', 'Service') ?></a></li>
                         <li><a href="#blog"><?= Yii::t('ui', 'Blog') ?></a></li>
                         <li><a href="#contact"><?= Yii::t('ui', 'Contact') ?></a></li>
                         <li class="button"><a href="<?= \yii\helpers\Url::to(['signup/create'], true) ?>"><span><?= Yii::t('ui', 'Access') ?></span></a></li>

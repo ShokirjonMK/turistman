@@ -17,7 +17,7 @@ class m230426_122546_create_user_address_table extends Migration
         $this->createTable('{{%user_address}}', [
             'id' => $this->primaryKey(),
 
-			'user_id' => $this->integer(11)->notNull(),
+			'user_id' => $this->integer(11)->null(),
 			'name' => $this->string(255)->null(),
 			'family' => $this->string(255)->null(),
 			'patronymic_name' => $this->string(255)->null(),

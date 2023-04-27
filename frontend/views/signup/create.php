@@ -20,32 +20,20 @@ $this->params['breadcrumbs'][] = $this->title;
         background-size: cover;
     }
 </style>
+<?php if (\Yii::$app->session->getFlash('error') !== null) : ?>
+    <span class="alert alert-info alert-dismissible" role="alert" style="z-index: 9999; position: absolute; top: 0; left: 0;">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+            <?= \Yii::$app->session->getFlash('error') ?>
+        </span>
+<?php endif; ?>
 <!-- CONTACT -->
 <div class="picman_tm_section bgg" id="contact">
     <div class="picman_tm_contact">
         <div class="container">
-            <div class="row">
+            <div class="rows">
 
                 <!-- Left (contact) -->
-                <div class="left_part wow fadeInLeft" data-wow-duration="1s">
-                    <div class="left_top">
-                        <h3 class="title" style="color: #fff">Contact Us</h3>
-                        <!-- Left (feature) -->
-                        <div class="left_part">
-                            <div class="left_in">
-                                <div class="img_1">
-                                    <img src="<?= $modelsd->getPhotoSrc() ?>" alt="" />
-                                    <div class="main wow fadeInLeft" data-img-url="https://static.review.uz/crop/1/0/736__85_1023202567.jpg?v=1624450678" data-wow-duration="1s"></div>
-                                </div>
-                                <div class="img_2">
-                                    <img src="<?= $modelsd->getPhotoSrc() ?>" alt="" />
-                                    <div class="main wow fadeInLeft" data-img-url="https://i2.wp.com/vse-sekrety.ru/uploads/posts/2013-11/1385417670_turagenstvo-02.jpg" data-wow-duration="1s" data-wow-delay="0.2s"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Left (feature) -->                    </div>
-
-                </div>
                 <!-- Left (contact) -->
 
                 <!-- RIght (contact) -->
@@ -61,26 +49,19 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="input_list">
                             <ul>
                                 <li>
-
-                                    <?= $form->field($model, 'sera_num')->textInput(['autofocus' => true])->label(false) ?>
+                                    <?= $form->field($model, 'sera_num')->textInput(['autofocus' => true, 'placeholder'=>'passport seria va raqam'])->label(false) ?>
                                     <?= $form->field($model, 'date')->Input('date',['autofocus' => true])->label(false) ?>
                                     <?php echo $form->errorSummary($model); ?>
                                 </li>
-                                <li><input id="phone" type="number" placeholder="Your Phone" /></li>
+<!--                                <li><input id="phone" type="number" placeholder="Your Phone" /></li>-->
                             </ul>
                         </div>
 
 
                         <div class="form-group">
-                            <?= Html::submitButton(
-                                '<span class="glyphicon glyphicon-check"></span> ' .
-                                ($model->isNewRecord ? Yii::t('cruds', 'Create') : Yii::t('cruds', 'Save')),
-                                [
-                                    'id' => 'save-' . $model->formName(),
-                                    'class' => 'btn btn-success'
-                                ]
-                            );
-                            ?>                        </div>
+							<?= Html::submitButton('ruyxatdan utish', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+
+                        </div>
                         <?php ActiveForm::end(); ?>
                     </div>
                 </div>

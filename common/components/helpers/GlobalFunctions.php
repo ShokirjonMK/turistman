@@ -93,6 +93,7 @@ function passera_num($model)
 function passport($sera, $sera_num, $date)
 {
    $url = "https://api.online-mahalla.uz/api/v1/public/tax/passport?series=$sera&number=$sera_num&birth_date=$date";
+
    $curl = curl_init();
    curl_setopt($curl, CURLOPT_URL, $url);
    curl_setopt($curl,CURLOPT_RETURNTRANSFER, true);

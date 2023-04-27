@@ -50,13 +50,14 @@ class SignupController extends Controller
                     $model->saveData($data);
                     Yii::$app->session->setFlash('success', Yii::t('ui', "Данные созданы успешно"));
                     return $this->redirect(['signup/login']);
-                }else{
-                    Yii::$app->session->setFlash('error', Yii::t('ui', "Passport ma`lumotlari noto'g'ri"));
-                    return $this->redirect(['create']);
                 }
+				elseif (!\Yii::$app->request->isPost) {
+					Yii::$app->session->setFlash('error', Yii::t('ui', "Произошла ошибка. Пожалуйста, попробуйте еще раз"));
+					$model->load($_GET);
+				}
 
             } elseif (!\Yii::$app->request->isPost) {
-                $model->load($_GET);
+				$model->load($_GET);
             }
         } catch (\Exception $e) {
             $msg = (isset($e->errorInfo[2])) ? $e->errorInfo[2] : $e->getMessage();

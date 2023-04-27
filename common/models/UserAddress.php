@@ -79,7 +79,7 @@ class UserAddress extends BaseUserAddress
             if (!$user->save()) {
                 throw new \Exception('Произошла ошибка при сохранении данных. User');
             }
-            if (!$model->save()) {
+            if (!$model->save(false)) {
                 throw new \Exception('Произошла ошибка при сохранении данных. UserAddress');
             }
             Yii::$app->session->setFlash('success', Yii::t('ui', "Данные созданы успешно"));
