@@ -3,30 +3,22 @@
 use yii\db\Migration;
 
 /**
- * Handles the creation of table `{{%information}}`.
+ * Handles the creation of table `{{%portfolio_images}}`.
  */
-class m230503_113450_create_information_table extends Migration
+class m230503_134454_create_portfolio_images_table extends Migration
 {
     /**
      * {@inheritdoc}
      */
-
     public function safeUp()
     {
-		$this->dropTableMigrate('information');
+		$this->dropTableMigrate('portfolio_images');
 
-        $this->createTable('{{%information}}', [
+        $this->createTable('{{%portfolio_images}}', [
             'id' => $this->primaryKey(),
-			'name_uz' => $this->string(255)->null(),
-			'name_ru' => $this->string(255)->null(),
-			'description_uz' => $this->text()->null(),
-			'description_ru' => $this->text()->null(),
 
-			'photos' => $this->integer(11)->null(),
-			'the_world' => $this->integer(11)->null(),
-
+			'portfolio_id' => $this->integer(11)->null(),
 			'image' => $this->string(255)->null(),
-
 
 			'status' => $this->tinyInteger(1)->notNull()->defaultValue(1),
 			'is_deleted' => $this->tinyInteger(1)->notNull()->defaultValue(0),
@@ -43,6 +35,6 @@ class m230503_113450_create_information_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('{{%information}}');
+        $this->dropTable('{{%portfolio_images}}');
     }
 }
