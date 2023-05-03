@@ -10,6 +10,7 @@ $this->title = 'Home';
 <?=  $this->render('home.php') ?>
 <!-- HOME -->
 <?=  $this->render('about.php') ?>
+<?=  $this->render('information.php') ?>
 <!-- CORUSEL -->
 <?=  $this->render('corusell.php') ?>
 <!-- CORUSEL -->
