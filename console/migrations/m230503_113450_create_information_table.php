@@ -3,29 +3,38 @@
 use yii\db\Migration;
 
 /**
- * Handles the creation of table `{{%pricing_plans}}`.
+ * Handles the creation of table `{{%information}}`.
  */
-class m230427_112049_create_pricing_plans_table extends Migration
+class m230503_113450_create_information_table extends Migration
 {
     /**
      * {@inheritdoc}
      */
+
     public function safeUp()
     {
 		$this->dropTableMigrate('user_address');
 
-		$this->createTable('{{%pricing_plans}}', [
+        $this->createTable('{{%information}}', [
             'id' => $this->primaryKey(),
-			'name' => $this->string(255)->null(),
-            'price' => $this->integer(11)->null(),
-            'famous' => $this->tinyInteger(1)->notNull()->defaultValue(1),
-            'message' => $this->string(255)->null(),
+			'name_uz' => $this->string(255)->null(),
+			'name_ru' => $this->string(255)->null(),
+			'description_uz' => $this->text()->null(),
+			'description_ru' => $this->text()->null(),
+
+			'photos' => $this->integer(11)->null(),
+			'the_world' => $this->integer(11)->null(),
+
+			'image' => $this->string(255)->null(),
+
+
 			'status' => $this->tinyInteger(1)->notNull()->defaultValue(1),
 			'is_deleted' => $this->tinyInteger(1)->notNull()->defaultValue(0),
 			'created_at' => $this->integer()->notNull(),
 			'updated_at' => $this->integer()->notNull(),
 			'created_by' => $this->integer()->notNull(),
 			'updated_by' => $this->integer()->notNull(),
+
         ]);
     }
 
@@ -34,6 +43,6 @@ class m230427_112049_create_pricing_plans_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('{{%pricing_plans}}');
+        $this->dropTable('{{%information}}');
     }
 }
