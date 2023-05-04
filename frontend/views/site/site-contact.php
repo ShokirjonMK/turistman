@@ -69,8 +69,6 @@
 					</div>
 				</div>
 				<!-- RIght (contact) -->
-
-
 			</div>
 		</div>
 	</div>

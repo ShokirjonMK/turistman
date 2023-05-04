@@ -1,5 +1,5 @@
 <?php
-$model = \common\models\PricingPlans::find()->all()
+$model = \common\models\PricingPlans::find()->limit(3)->orderBy(['id' => SORT_DESC])->all()
 ?>
 
 <div class="picman_tm_section" id="plans">
@@ -16,7 +16,7 @@ $model = \common\models\PricingPlans::find()->all()
 			<div class="row">
 				<ul class="list">
                     <?php foreach ($model as $value): ?>
-					<li class="list_item wow fadeInUp" data-wow-duration="1s">
+					<li class="list_item wow fadeInUp" data-wow-duration="1s" >
 						<div class="item">
 							<div class="top_part">
                                 <p><?php if ($value->famous == 1){echo 'Popular';} ?></p>
@@ -33,7 +33,6 @@ $model = \common\models\PricingPlans::find()->all()
 						</div>
 					</li>
                     <?php endforeach; ?>
-
 				</ul>
 			</div>
 		</div>
