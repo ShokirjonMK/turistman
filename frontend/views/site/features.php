@@ -1,5 +1,5 @@
 <?php
-
+$model = \common\models\Features::find()->one()
 ?>
 
 <div class="picman_tm_section" id="feature">
@@ -13,11 +13,11 @@
 					<div class="left_in">
 						<div class="img_1">
 							<img src="img/thumbs/3-4.jpg" alt="" />
-							<div class="main wow fadeInLeft" data-img-url="https://static.review.uz/crop/1/0/736__85_1023202567.jpg?v=1624450678" data-wow-duration="1s"></div>
+							<div class="main wow fadeInLeft" data-img-url=" <?=$model->getPhotoSrc()?> " data-wow-duration="1s"></div>
 						</div>
 						<div class="img_2">
 							<img src="img/thumbs/1-1.jpg" alt="" />
-							<div class="main wow fadeInLeft" data-img-url="https://i2.wp.com/vse-sekrety.ru/uploads/posts/2013-11/1385417670_turagenstvo-02.jpg" data-wow-duration="1s" data-wow-delay="0.2s"></div>
+							<div class="main wow fadeInLeft" data-img-url="<?=$model->getPhotoSrcBanner()?>" data-wow-duration="1s" data-wow-delay="0.2s"></div>
 						</div>
 					</div>
 				</div>
@@ -30,8 +30,8 @@
 					<!-- Description (feature/right) -->
 					<div class="desc">
 						<h4>Features</h4>
-						<h3>My Other Service to bring the Best</h3>
-						<p>Voluptate velit esse cillum dol ullamco laboris nisi ut aliquip ex ea commodo consequa re dolor in repre</p>
+						<h3><?= $model->name ?></h3>
+                        <p><?= $model->message ?></p>
 					</div>
 					<!-- Description (feature/right) -->
 

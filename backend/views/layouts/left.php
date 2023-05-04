@@ -30,7 +30,15 @@
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget' => 'tree'],
                 'items' => [
-                    ['label' => Yii::t('ui', 'Dashboard'), 'url' => ['/site/index'], 'icon' => 'home'],
+                    ['label' => Yii::t('ui', 'Blog'), 'url' => ['/catalog/blog/index'], 'icon' => 'home'],
+                    ['label' => Yii::t('ui', 'Blog-comment'), 'url' => ['/catalog/blog-comment/index'], 'icon' => 'home'],
+                    ['label' => Yii::t('ui', 'Comment'), 'url' => ['/catalog/comments/index'], 'icon' => 'home'],
+                    ['label' => Yii::t('ui', 'Features'), 'url' => ['/catalog/features/index'], 'icon' => 'home'],
+                    ['label' => Yii::t('ui', 'Information'), 'url' => ['/catalog/information/index'], 'icon' => 'home'],
+                    ['label' => Yii::t('ui', 'Pricing-plans'), 'url' => ['/catalog/pricing-plans/index'], 'icon' => 'home'],
+                    ['label' => Yii::t('ui', 'Service'), 'url' => ['/catalog/service/index'], 'icon' => 'home'],
+                    ['label' => Yii::t('ui', 'Service-category'), 'url' => ['/catalog/service-category/index'], 'icon' => 'home'],
+                    ['label' => Yii::t('ui', 'Portfolyo'), 'url' => ['/catalog/portfolyo/index'], 'icon' => 'home'],
                     ['label' => Yii::t('ui', 'settings-home'), 'url' => ['/catalog/settings-home/index'], 'icon' => 'home'],
                     ['label' => Yii::t('ui', 'Settings'), 'icon' => 'cogs', 'items' => [
                         [

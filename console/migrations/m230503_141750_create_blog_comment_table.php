@@ -17,8 +17,8 @@ class m230503_141750_create_blog_comment_table extends Migration
         $this->createTable('{{%blog_comment}}', [
             'id' => $this->primaryKey(),
 
-			'user_id' => $this->string(255)->null(),
-			'blog_id' => $this->string(255)->null(),
+			'user_id' => $this->integer(11)->null(),
+			'blog_id' => $this->integer(11)->null(),
 			'message' => $this->string(255)->null(),
 			'date' => $this->string(255)->null(),
 
@@ -28,7 +28,12 @@ class m230503_141750_create_blog_comment_table extends Migration
 			'updated_at' => $this->integer()->notNull(),
 
         ]);
-    }
+
+		$this->addForeignKey('user_comment', 'blog_comment', 'user_id', 'user', 'id');
+
+		$this->addForeignKey('blog_blog', 'blog_comment', 'blog_id', 'blog', 'id');
+
+	}
 
     /**
      * {@inheritdoc}

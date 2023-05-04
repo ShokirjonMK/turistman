@@ -28,7 +28,10 @@ class m230503_134454_create_portfolio_images_table extends Migration
 			'updated_by' => $this->integer()->notNull(),
 
         ]);
-    }
+
+		$this->addForeignKey('pr_portfolio_images', 'portfolio_images', 'portfolio_id', 'portfolio', 'id');
+
+	}
 
     /**
      * {@inheritdoc}

@@ -1,4 +1,5 @@
 <?php
+$model = \common\models\Information::find()->one()
 ?>
 
 <div class="picman_tm_section" id="information">
@@ -10,21 +11,20 @@
 				<div class="left_box">
 					<div class="desc">
 						<h4>Photographer by born</h4>
-						<h3>My click creates history, be a part of that</h3>
-						<p>Voluptate velit esse cillum dol ullamco laboris nisi ut aliquip ex ea commodo consequa re dolor in reprehenderit in volu ptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-						<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						<h3><?=$model->name_uz?></h3>
+						<p><?= $model->description_uz ?></p>
 					</div>
 					<div class="counter_list">
 						<ul>
 							<li>
 								<div class="item">
-									<h3><span class="picman_tm_counter" data-from="0" data-to="200" data-speed="2000">0</span><sup>+</sup></h3>
+									<h3><span class="picman_tm_counter" data-from="0" data-to="<?= $model->photos ?>" data-speed="2000">0</span><sup>+</sup></h3>
 									<h4>Photoshoot Per Months</h4>
 								</div>
 							</li>
 							<li>
 								<div class="item">
-									<h3><span class="picman_tm_counter" data-from="0" data-to="5" data-speed="2000">0</span>K</h3>
+									<h3><span class="picman_tm_counter" data-from="0" data-to="<?= $model->the_world ?>" data-speed="2000">0</span>K</h3>
 									<h4>Clients<br />Worldwide</h4>
 								</div>
 							</li>
@@ -48,7 +48,7 @@
 					<span class="line_d"></span>
 					<div class="img">
 						<img src="img/thumbs/1-1.jpg" alt="">
-						<div class="main" data-img-url="https://www.currentschoolnews.com/uz/maqolalar/sayohat-va-turizm-kurslari/ilova/sayohat-va-turizm/"></div>
+						<div class="main" data-img-url="<?= $model->getPhotoSrc() ?>"></div>
 					</div>
 				</div>
 				<!-- Right Side (information) -->
