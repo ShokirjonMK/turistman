@@ -27,7 +27,7 @@ $model = \common\models\PricingPlans::find()->limit(3)->orderBy(['id' => SORT_DE
 							<div class="bottom_part">
 								<p><?= $value->message ?></p>
 								<div class="button">
-									<a href="#">Book Now</a>
+									<a href="<?= \yii\helpers\Url::to(['site/pricing', 'id' => $value->id ]) ?>">Book Now</a>
 								</div>
 							</div>
 						</div>

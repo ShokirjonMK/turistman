@@ -104,9 +104,13 @@ class SiteController extends Controller
         return $this->render('blog-post');
     }
 
-	public function actionPricing()
+	public function actionPricing($id = null)
     {
         return $this->render('tour-pricing');
+    }
+     public function actionProfil()
+    {
+        return $this->render('profil');
     }
 
 

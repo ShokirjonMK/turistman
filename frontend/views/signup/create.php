@@ -73,9 +73,11 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="input_list">
                             <ul>
                                 <li>
+                                    <label>Passport seria va raqam</label>
                                     <?= $form->field($model, 'sera_num')->textInput(['autofocus' => true, 'required' => true, 'placeholder'=>'passport seria va raqam'])->label(false) ?>
 
                                     <br>
+                                    <label>To`g`ilgan kun</label>
                                     <?= $form->field($model, 'date')->Input('date',['autofocus' => true, 'required' => true,])->label(false) ?>
                                 </li>
 <!--                                <li><input id="phone" type="number" placeholder="Your Phone" /></li>-->
@@ -87,6 +89,8 @@ $this->params['breadcrumbs'][] = $this->title;
 							<?= Html::submitButton('ruyxatdan utish', ['class' => 'send_message', 'name' => 'login-button']) ?>
 
                         </div>
+                        <br>
+                        <span>Allaqachon hisobingiz bormi? </span><a style="text-decoration: none" href="<?= \yii\helpers\Url::to(['signup/login']) ?>">hozir kiring</a>
                         <?php ActiveForm::end(); ?>
                     </div>
                 </div>

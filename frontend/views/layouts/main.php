@@ -84,7 +84,11 @@ AppAsset::register($this);
                         <li><a href="#portfolio"><?= Yii::t('ui', 'Service') ?></a></li>
                         <li><a href="#blog"><?= Yii::t('ui', 'Blog') ?></a></li>
                         <li><a href="#contact"><?= Yii::t('ui', 'Contact') ?></a></li>
+                        <?php if (!Yii::$app->user->isGuest): ?>
+                        <li class="button"><a href="<?= \yii\helpers\Url::to(['site/logout'], true) ?>"><span><?= Yii::t('ui', 'Chiqish') ?></span></a></li>
+                        <?php else: ?>
                         <li class="button"><a href="<?= \yii\helpers\Url::to(['signup/create'], true) ?>"><span><?= Yii::t('ui', 'Access') ?></span></a></li>
+						<?php endif; ?>
                     </ul>
                 </div>
             </div>

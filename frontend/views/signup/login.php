@@ -71,6 +71,9 @@ $modelsd = \common\models\SettingsHome::find()->sort_desc()->one();
 							<?= Html::submitButton('Kirish', ['class' => 'send_message', 'name' => 'login-button']) ?>
 
                         </div>
+                        <br>
+                        <span>hisobingiz yo'qmi?  </span><a style="text-decoration: none" href="<?= \yii\helpers\Url::to(['signup/create']) ?>">hozir ro'yxatdan o'ting</a>
+
                         <?php ActiveForm::end(); ?>
                     </div>
                 </div>
