@@ -104,13 +104,18 @@ $actionColumnTemplateString = '<div class="action-buttons">'.$actionColumnTempla
             },
             'contentOptions' => ['nowrap'=>'nowrap']
         ],
-			'date',
+			[
+				'attribute' => 'image',
+				'value' => function (\common\models\Portfolyo $model){
+					return $model->getPhotoSrc();
+				},
+				'format' => ['image', ['width' => 100, 'height' => 50]]
+			],
 			'description:ntext',
-			'status',
-			'is_deleted',
 			'title',
-			'image',
-			'images',
+			'date',
+			'status',
+
                 ]
         ]); ?>
     </div>

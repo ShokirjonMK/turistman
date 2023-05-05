@@ -99,6 +99,25 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
+	public function actionPost()
+    {
+        return $this->render('blog-post');
+    }
+
+	public function actionPricing()
+    {
+        return $this->render('tour-pricing');
+    }
+
+
+
+	public function actionPortfolyo($id)
+    {
+        return $this->render('tour-image-info',[
+			'id' => $id
+		]);
+    }
+
 
 
 

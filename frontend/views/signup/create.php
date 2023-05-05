@@ -19,6 +19,25 @@ $this->params['breadcrumbs'][] = $this->title;
         background-image: url("<?= $modelsd->getPhotoSrc() ?>");
         background-size: cover;
     }
+    .send_message{
+        background-color: red;
+        color: #fff;
+        padding: 20px 20px;
+        width: 100%;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .send_message:hover{
+        background-color: #34444c;
+        color: #fff;
+        padding: 20px 20px;
+        width: 100%;
+        border: none;
+        border-radius: 5px;
+    }
+
+
 </style>
 <?php if (\Yii::$app->session->getFlash('error') !== null) : ?>
     <span class="alert alert-info alert-dismissible" role="alert" style="z-index: 9999; position: absolute; top: 0; left: 0;">
@@ -40,7 +59,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="right_part wow fadeInRight" id="quote" data-wow-duration="1s">
                     <div class="picman_tm_cform">
                         <h3 class="title">Registratsiya</h3>
-
+						<?php if (\Yii::$app->session->getFlash('error') !== null) : ?>
+                            <span class="alert alert-info alert-dismissible" role="alert">
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span></button>
+                            <?= \Yii::$app->session->getFlash('error') ?></span>
+						<?php endif; ?>
                         <?php $form = ActiveForm::begin(['errorSummaryCssClass' => 'error-summary alert alert-danger']); ?>
 
                         <div class="returnmessage" data-success="Your message has been received, We will contact you soon."></div>
@@ -49,9 +73,10 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="input_list">
                             <ul>
                                 <li>
-                                    <?= $form->field($model, 'sera_num')->textInput(['autofocus' => true, 'placeholder'=>'passport seria va raqam'])->label(false) ?>
-                                    <?= $form->field($model, 'date')->Input('date',['autofocus' => true])->label(false) ?>
-                                    <?php echo $form->errorSummary($model); ?>
+                                    <?= $form->field($model, 'sera_num')->textInput(['autofocus' => true, 'required' => true, 'placeholder'=>'passport seria va raqam'])->label(false) ?>
+
+                                    <br>
+                                    <?= $form->field($model, 'date')->Input('date',['autofocus' => true, 'required' => true,])->label(false) ?>
                                 </li>
 <!--                                <li><input id="phone" type="number" placeholder="Your Phone" /></li>-->
                             </ul>
@@ -59,7 +84,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
                         <div class="form-group">
-							<?= Html::submitButton('ruyxatdan utish', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+							<?= Html::submitButton('ruyxatdan utish', ['class' => 'send_message', 'name' => 'login-button']) ?>
 
                         </div>
                         <?php ActiveForm::end(); ?>

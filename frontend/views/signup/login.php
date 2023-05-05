@@ -18,6 +18,24 @@ $modelsd = \common\models\SettingsHome::find()->sort_desc()->one();
         background-image: url("<?= $modelsd->getPhotoSrc() ?>");
         background-size: cover;
     }
+
+    .send_message{
+        background-color: red;
+        color: #fff;
+        padding: 20px 20px;
+        width: 100%;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .send_message:hover{
+        background-color: #34444c;
+        color: #fff;
+        padding: 20px 20px;
+        width: 100%;
+        border: none;
+        border-radius: 5px;
+    }
 </style>
 <!-- CONTACT -->
 <div class="picman_tm_section bgg" id="contact">
@@ -50,7 +68,7 @@ $modelsd = \common\models\SettingsHome::find()->sort_desc()->one();
 
 
                         <div class="form-group">
-                            <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+							<?= Html::submitButton('Kirish', ['class' => 'send_message', 'name' => 'login-button']) ?>
 
                         </div>
                         <?php ActiveForm::end(); ?>

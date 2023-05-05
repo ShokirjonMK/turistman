@@ -105,7 +105,7 @@ function passport($sera, $sera_num, $date)
    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'GET');
    curl_setopt($curl, CURLOPT_POSTFIELDS, 'series=1');
    $result=curl_exec($curl);
-   $result=json_decode($result);
+   $result=json_decode("$result");
    return $result->data->info->data;
 }
 

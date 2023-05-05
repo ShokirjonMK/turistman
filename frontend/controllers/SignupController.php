@@ -8,6 +8,8 @@ use common\models\UserAddress;
 use frontend\models\SignupForm;
 use Yii;
 use yii\web\Controller;
+use yii\web\Session;
+use function mysql_xdevapi\getSession;
 
 class SignupController extends Controller
 {
@@ -44,19 +46,17 @@ class SignupController extends Controller
 
         try {
             if ($model->load($_POST)) {
-
+				session_start();
                 $data = passport(passera($model), passera_num($model), $model->date);
-				dd($data);
+                $_SESSION['data'] = $data;
                 if ($data !== null){
-                    $model->saveData($data);
                     Yii::$app->session->setFlash('success', Yii::t('ui', "Данные созданы успешно"));
-                    return $this->redirect(['signup/login']);
+                    return $this->redirect(['signup/pasport']);
                 }
-				elseif (!\Yii::$app->request->isPost) {
-					Yii::$app->session->setFlash('error', Yii::t('ui', "Произошла ошибка. Пожалуйста, попробуйте еще раз"));
+				else {
+					Yii::$app->session->setFlash('error', Yii::t('ui', "Malumotni tekshiring"));
 					$model->load($_GET);
 				}
-
             } elseif (!\Yii::$app->request->isPost) {
 				$model->load($_GET);
             }
@@ -67,6 +67,24 @@ class SignupController extends Controller
         return $this->render('create', ['model' => $model]);
 
     }
+
+	public function actionPasport($status = null)
+	{
+		session_start();
+		$data = $_SESSION['data'];
+		if ($status) {
+			$model = new UserAddress;
+			$model->saveData($data);
+			session_unset();
+			Yii::$app->session->setFlash('success', Yii::t('ui', "Данные созданы успешно"));
+			return $this->redirect(['signup/login']);
+		}
+		if ($data != null){
+			return $this->render('pasport');
+		} else {
+			return $this->redirect(['signup/create']);
+		}
+	}
 
 
 }

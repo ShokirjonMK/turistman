@@ -22,7 +22,7 @@ $model = \common\models\Portfolyo::find()->all();
             <?php foreach ($model as $value): ?>
 			<div class="even items">
 				<div class="image" data-title="Motivation Picnik" data-category="Vimeo">
-                    <a href="<?= \yii\helpers\Url::to(['portfolio', 'id'=> $value->id ], true) ?>">
+                    <a href="<?= \yii\helpers\Url::to(['portfolyo', 'id'=> $value->id ], true) ?>">
 					<div class="img_in">
 						<img src="<?= $value->getPhotoSrc() ?>" alt="">
 						<div class="main" data-img-url="<?= $value->getPhotoSrc() ?>"></div>

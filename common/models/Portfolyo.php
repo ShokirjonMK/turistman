@@ -32,7 +32,7 @@ class Portfolyo extends BasePortfolyo
         return ArrayHelper::merge(
             parent::rules(),
             [
-				[['photoFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png,jpg,jpg,jpeg,jfif,svg'],
+				[['photoFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png,jpg,jpg,jpeg,jfif,svg'],
 
 				# custom validation rules
             ]
