@@ -112,6 +112,11 @@ class SiteController extends Controller
         return $this->render('tour-pricing');
     }
 
+	public function actionPricings($id = null)
+    {
+        return $this->render('pricing-all');
+    }
+
     public function actionProfil()
     {
 		$model = new Blog;
@@ -167,9 +172,6 @@ class SiteController extends Controller
 			'id' => $id
 		]);
     }
-
-
-
 
     /**
      * Signs user up.

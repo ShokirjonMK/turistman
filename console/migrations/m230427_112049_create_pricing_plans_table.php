@@ -18,6 +18,7 @@ class m230427_112049_create_pricing_plans_table extends Migration
             'id' => $this->primaryKey(),
 			'name' => $this->string(255)->null(),
             'price' => $this->integer(11)->null(),
+            'image' => $this->string(255)->null(),
             'famous' => $this->tinyInteger(1)->notNull()->defaultValue(1),
             'message' => $this->string(255)->null(),
 			'status' => $this->tinyInteger(1)->notNull()->defaultValue(1),

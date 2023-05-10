@@ -20,10 +20,10 @@
             <div class="row" style="display: flex;">
                 <div class="list_item wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
                     <div class="item popular">
-                        <div class="top_part">
+                        <div class="top_part" style="background-image: url('https://www.shutterstock.com/image-illustration/technology-background-abstract-digital-combination-260nw-1795415125.jpg')">
                             <p>Popular</p>
                             <h4>Package 02</h4>
-                            <h3>Umrah</h3>
+                            <h3 style="color: #fff">Umrah</h3>
                             <div class="price"><span class="text"><span>$</span>1700</span></div>
                         </div>
                         <div class="bottom_part">
