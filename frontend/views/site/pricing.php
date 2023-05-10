@@ -9,6 +9,9 @@ $model = \common\models\PricingPlans::find()->limit(3)->orderBy(['id' => SORT_DE
 			<h4>Pricing Plans</h4>
 			<h3>Photoshoot Plans to Capture Your Best Moments</h3>
 		</div>
+        <div style="display: flex; justify-content: right; align-items: center">
+            <a href="<?= \yii\helpers\Url::to(['pricings' ]) ?>">Barchasini Ko`rish</a>
+        </div>
 	</div>
 
 	<div class="picman_tm_pricing">
