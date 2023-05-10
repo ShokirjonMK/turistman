@@ -177,7 +177,7 @@ AppAsset::register($this);
                             <div class="sub_form">
                                 <input type="text" placeholder="Your email" />
                                 <a href="#">
-                                    <img src="img/svg/mail.svg" alt="" class="svg">
+                                    <img src="<?= \yii\helpers\Url::to(['img/svg/mail.svg'])?>" alt="" class="svg">
                                 </a>
                             </div>
                             <div class="returnmessage" data-success="Your message has been received, We will contact you soon." data-message="You have subscribed to our updates. Thank you"></div>
@@ -195,10 +195,10 @@ AppAsset::register($this);
                         </div>
                         <div class="picman_tm_h_social">
                             <ul>
-                                <li class="facebook"><a href="#"><img src="img/svg/facebook.svg" alt="" class="svg"></a></li>
-                                <li class="twitter"><a href="#"><img src="img/svg/twitter.svg" alt="" class="svg"></a></li>
-                                <li class="linkedin"><a href="#"><img src="img/svg/linkedin.svg" alt="" class="svg"></a></li>
-                                <li class="instagram"><a href="#"><img src="img/svg/instagram.svg" alt="" class="svg"></a></li>
+                                <li class="facebook"><a href="#"><img src="<?= \yii\helpers\Url::to(['img/svg/facebook.svg'])?>" alt="" class="svg"></a></li>
+                                <li class="twitter"><a href="#"><img src="<?= \yii\helpers\Url::to(['img/svg/twitter.svg'])?>" alt="" class="svg"></a></li>
+                                <li class="linkedin"><a href="#"><img src="<?= \yii\helpers\Url::to(['img/svg/linkedin.svg'])?>" alt="" class="svg"></a></li>
+                                <li class="instagram"><a href="#"><img src="<?= \yii\helpers\Url::to(['img/svg/instagram.svg'])?>" alt="" class="svg"></a></li>
                             </ul>
                         </div>
                     </div>
@@ -212,7 +212,7 @@ AppAsset::register($this);
         <!-- Bottom (footer) -->
         <div class="footer_bottom">
             <div class="copyright wow fadeInUp" data-wow-duration="1s">
-                <p>Designed with love by <a href="https://t.me/ShokirjonMK" target="_blank">ShokirjonMK</a> &copy; 2022</p>
+                <p>Designed with love by <a href="https://t.me/ShokirjonMK" target="_blank">ShokirjonMK</a> &copy; <?= date('Y') ?></p>
             </div>
             <div class="help_link wow fadeInUp" data-wow-duration="1s">
                 <ul>

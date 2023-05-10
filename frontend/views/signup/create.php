@@ -84,7 +84,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
                         <div class="form-group">
 							<?= Html::submitButton('ruyxatdan utish', ['class' => 'send_message', 'name' => 'login-button']) ?>
-
                         </div>
                         <br>
                         <span>Allaqachon hisobingiz bormi? </span><a style="text-decoration: none" href="<?= \yii\helpers\Url::to(['signup/login']) ?>">hozir kiring</a>
