@@ -18,6 +18,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use yii\web\Response;
+use yii\web\UploadedFile;
 
 /**
  * Site controller
@@ -110,14 +111,24 @@ class SiteController extends Controller
     {
         return $this->render('tour-pricing');
     }
+
     public function actionProfil()
     {
-		$model = new Comments;
-		if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-			$model->user_id = getUserId();
-			$model->save();
-			Yii::$app->session->setFlash('success', 'success');
-			return $this->redirect(['profil']);
+		$model = new Blog();
+		try {
+			if ($model->load($_POST)) {
+				$model->photoFile = UploadedFile::getInstance($model, 'photoFile');
+				$model->uploadPhoto();
+				$model->user_id = getUserId();
+				$model->save(false);
+				Yii::$app->session->setFlash('success', Yii::t('ui', "Данные созданы успешно"));
+				return $this->redirect(['profil']);
+			} elseif (!\Yii::$app->request->isPost) {
+				$model->load($_GET);
+			}
+		} catch (\Exception $e) {
+			$msg = (isset($e->errorInfo[2]))?$e->errorInfo[2]:$e->getMessage();
+			$model->addError('_exception', $msg);
 		}
         return $this->render('profil', [
 			'model' => $model

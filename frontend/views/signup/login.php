@@ -54,6 +54,7 @@ $modelsd = \common\models\SettingsHome::find()->sort_desc()->one();
                             <span aria-hidden="true">&times;</span></button>
                             <?= \Yii::$app->session->getFlash('success') ?></span>
 						<?php endif; ?>
+
                         <?php $form = ActiveForm::begin(['errorSummaryCssClass' => 'error-summary alert alert-danger']); ?>
 
                         <div class="returnmessage" data-success="Your message has been received, We will contact you soon."></div>

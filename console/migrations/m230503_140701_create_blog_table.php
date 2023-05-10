@@ -17,6 +17,8 @@ class m230503_140701_create_blog_table extends Migration
         $this->createTable('{{%blog}}', [
             'id' => $this->primaryKey(),
 
+			'user_id' => $this->integer(11)->null(),
+
             'title' => $this->string(255)->null(),
             'message' => $this->string(255)->null(),
 			'image' => $this->string(255)->null(),

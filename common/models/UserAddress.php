@@ -57,7 +57,7 @@ class UserAddress extends BaseUserAddress
 		session_start();
 
         $user = new User();
-        $user->username = $data->name.'_'.user_random_id();
+        $user->username = "$data->name".'_'.user_random_id();
         $user->auth_key = \Yii::$app->security->generateRandomString(20);
         $user->email = $_SESSION['email'];
 		$pass = randomString();
@@ -78,8 +78,12 @@ class UserAddress extends BaseUserAddress
 		Yii::$app->mailer->compose()
 		->setFrom(['tulqin484@gmail.com' => 'Turistman Group'])
 		->setTo(str_replace(" ", "", $_SESSION['email']))
-		->setSubject('Turistman success')
-		->setHtmlBody('<span>login: '.$user->username . '<br> parol: ' . $pass . ' </span>')
+		->setSubject('TURISMAN.UZ')
+		->setHtmlBody('<span>'.'Assalomu Aleykum ' .$model->name . ' ' . $model->family . ' ' . $model->patronymic_name .'! <br><br>
+        Siz TURISMAN.UZ platformasida ro\'yhatdan o\'tdinggiz. <br><br>
+         <br><br>
+        ' . 'Login: '.$user->username . '<br> Parol: ' . $pass . '
+        <br><br> Sizga yoqimli hordiq tilaymiz! </span>')
 		->send();
 
         $transaction = Yii::$app->db->beginTransaction();

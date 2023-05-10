@@ -39,13 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 </style>
-<?php if (\Yii::$app->session->getFlash('error') !== null) : ?>
-    <span class="alert alert-info alert-dismissible" role="alert" style="z-index: 9999; position: absolute; top: 0; left: 0;">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span></button>
-            <?= \Yii::$app->session->getFlash('error') ?>
-        </span>
-<?php endif; ?>
+
 <!-- CONTACT -->
 <div class="picman_tm_section bgg" id="contact">
     <div class="picman_tm_contact">

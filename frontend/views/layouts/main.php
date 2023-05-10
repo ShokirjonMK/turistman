@@ -29,6 +29,8 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 
+
+
 <!-- PRELOADER -->
 <div id="preloader">
     <div class="loader_line"></div>

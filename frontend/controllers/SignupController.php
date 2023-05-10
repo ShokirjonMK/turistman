@@ -50,14 +50,20 @@ class SignupController extends Controller
                 $data = passport(passera($model), passera_num($model), $model->date);
                 $_SESSION['data'] = $data;
 				$_SESSION['email'] = $model->email;
-                if ($data !== null){
-                    Yii::$app->session->setFlash('success', Yii::t('ui', "Данные созданы успешно"));
-                    return $this->redirect(['signup/pasport']);
-                }
-				else {
-					Yii::$app->session->setFlash('error', Yii::t('ui', "Malumotni tekshiring"));
+				if (!User::findOne(['email' => $model->email]))
+				{
+					if ($data){
+						Yii::$app->session->setFlash('success', Yii::t('ui', "Данные созданы успешно"));
+						return $this->redirect(['signup/pasport']);
+					}else {
+						Yii::$app->session->setFlash('error', Yii::t('ui', "Malumotni tekshiring"));
+						$model->load($_GET);
+					}
+				}else {
+					Yii::$app->session->setFlash('error', Yii::t('ui', "bu email alla qachon ruyxatga olingan"));
 					$model->load($_GET);
 				}
+
             } elseif (!\Yii::$app->request->isPost) {
 				$model->load($_GET);
             }
@@ -77,7 +83,7 @@ class SignupController extends Controller
 			$model = new UserAddress;
 			$model->saveData($data);
 			session_unset();
-			Yii::$app->session->setFlash('success', Yii::t('ui', "Login va parol emailga yuborildi!"));
+			Yii::$app->session->setFlash('success', Yii::t('ui', "Ro'yhatdan o'ttingiz. Foydalanish ma'lumotlari emailizga jo'natildi!"));
 			return $this->redirect(['signup/login']);
 		}
 		if ($data != null){

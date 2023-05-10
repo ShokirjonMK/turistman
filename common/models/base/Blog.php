@@ -12,6 +12,7 @@ use yii\behaviors\TimestampBehavior;
  * This is the base-model class for table "blog".
  *
  * @property integer $id
+ * @property integer $user_id
  * @property string $title
  * @property string $message
  * @property string $image
@@ -60,7 +61,7 @@ abstract class Blog extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['status', 'is_deleted'], 'integer'],
+            [['status', 'user_id', 'is_deleted'], 'integer'],
             [['title', 'message', 'image', 'date'], 'string', 'max' => 255]
         ];
     }
@@ -72,6 +73,7 @@ abstract class Blog extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('models', 'ID'),
+            'user_id' => Yii::t('models', 'user_id'),
             'title' => Yii::t('models', 'Title'),
             'message' => Yii::t('models', 'Message'),
             'image' => Yii::t('models', 'Image'),

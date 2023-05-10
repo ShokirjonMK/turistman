@@ -18,7 +18,7 @@ class BlogSearch extends Blog
 public function rules()
 {
 return [
-[['id', 'status', 'is_deleted', 'created_at', 'updated_at', 'created_by', 'updated_by'], 'integer'],
+[['id', 'status', 'user_id', 'is_deleted', 'created_at', 'updated_at', 'created_by', 'updated_by'], 'integer'],
             [['title', 'message', 'image', 'date'], 'safe'],
 ];
 }
@@ -66,6 +66,7 @@ $query->andFilterWhere([
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'user_id', $this->user_id])
             ->andFilterWhere(['like', 'message', $this->message])
             ->andFilterWhere(['like', 'image', $this->image])
             ->andFilterWhere(['like', 'date', $this->date]);
