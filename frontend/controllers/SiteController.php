@@ -114,7 +114,7 @@ class SiteController extends Controller
 
     public function actionProfil()
     {
-		$model = new Blog();
+		$model = new Blog;
 		try {
 			if ($model->load($_POST)) {
 				$model->photoFile = UploadedFile::getInstance($model, 'photoFile');
@@ -133,9 +133,33 @@ class SiteController extends Controller
         return $this->render('profil', [
 			'model' => $model
 		]);
+
     }
 
-
+	public function actionProf($id)
+	{
+		$model =  Blog::findOne($id);
+		try {
+			if ($model->load($_POST)) {
+				$model->photoFile = UploadedFile::getInstance($model, 'photoFile');
+				if ($model->photoFile != null){
+					$model->updatePhoto();
+				}
+				$model->user_id = getUserId();
+				$model->update(false);
+				Yii::$app->session->setFlash('success', Yii::t('ui', "Данные созданы успешно"));
+				return $this->redirect(['prof', 'id' => $id]);
+			} elseif (!\Yii::$app->request->isPost) {
+				$model->load($_GET);
+			}
+		} catch (\Exception $e) {
+			$msg = (isset($e->errorInfo[2]))?$e->errorInfo[2]:$e->getMessage();
+			$model->addError('_exception', $msg);
+		}
+		return $this->render('profil', [
+			'model' => $model
+		]);
+	}
 
 	public function actionPortfolyo($id)
     {
