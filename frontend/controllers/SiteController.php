@@ -1,6 +1,8 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Comments;
+use common\models\Blog;
 use common\models\UserAddress;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
@@ -108,9 +110,18 @@ class SiteController extends Controller
     {
         return $this->render('tour-pricing');
     }
-     public function actionProfil()
+    public function actionProfil()
     {
-        return $this->render('profil');
+		$model = new Comments;
+		if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+			$model->user_id = getUserId();
+			$model->save();
+			Yii::$app->session->setFlash('success', 'success');
+			return $this->redirect(['profil']);
+		}
+        return $this->render('profil', [
+			'model' => $model
+		]);
     }
 
 

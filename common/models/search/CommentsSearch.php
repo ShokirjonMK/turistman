@@ -18,8 +18,8 @@ class CommentsSearch extends Comments
 public function rules()
 {
 return [
-[['id', 'status', 'is_deleted', 'created_at', 'updated_at', 'created_by', 'updated_by'], 'integer'],
-            [['full_name', 'description', 'message', 'image', 'date'], 'safe'],
+[['id', 'status', 'user_id', 'is_deleted', 'created_at', 'updated_at', 'created_by', 'updated_by'], 'integer'],
+            [['description', 'message', 'image', 'date'], 'safe'],
 ];
 }
 
@@ -65,7 +65,7 @@ $query->andFilterWhere([
             'updated_by' => $this->updated_by,
         ]);
 
-        $query->andFilterWhere(['like', 'full_name', $this->full_name])
+        $query->andFilterWhere(['like', 'user_id', $this->user_id])
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'message', $this->message])
             ->andFilterWhere(['like', 'image', $this->image])

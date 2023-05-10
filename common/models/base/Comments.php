@@ -12,7 +12,7 @@ use yii\behaviors\TimestampBehavior;
  * This is the base-model class for table "comments".
  *
  * @property integer $id
- * @property string $full_name
+ * @property integer $user_id
  * @property string $description
  * @property string $message
  * @property string $image
@@ -59,9 +59,9 @@ abstract class Comments extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['full_name', 'description'], 'required'],
-            [['status', 'is_deleted'], 'integer'],
-            [['full_name', 'description', 'message', 'image', 'date'], 'string', 'max' => 255]
+            [['description'], 'required'],
+            [['status', 'is_deleted', 'user_id'], 'integer'],
+            [['description', 'message', 'image', 'date'], 'string', 'max' => 255]
         ];
     }
 
@@ -72,7 +72,7 @@ abstract class Comments extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('models', 'ID'),
-            'full_name' => Yii::t('models', 'Full Name'),
+            'user_id' => Yii::t('models', 'User Id'),
             'description' => Yii::t('models', 'Description'),
             'message' => Yii::t('models', 'Message'),
             'image' => Yii::t('models', 'Image'),

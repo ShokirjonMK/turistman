@@ -73,6 +73,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="input_list">
                             <ul>
                                 <li>
+                                    <label>Email</label>
+									<?= $form->field($model, 'email')->Input('email',['autofocus' => true, 'required' => true, 'placeholder'=>'email'])->label(false) ?>
+                                    <br>
                                     <label>Passport seria va raqam</label>
                                     <?= $form->field($model, 'sera_num')->textInput(['autofocus' => true, 'required' => true, 'placeholder'=>'passport seria va raqam'])->label(false) ?>
 

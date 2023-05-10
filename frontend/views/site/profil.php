@@ -1,5 +1,5 @@
 <?php
-
+$models = \common\models\Comments::find()->where(['user_id' => getUserId()])->all();
 ?>
 
 <div class="user-page">
@@ -22,56 +22,39 @@
 		<!-- Tashrif buyurgan joylari -->
 		<div class="visited-places">
 			<div>Tashrif buyurgan joylarim</div>
+            <?php foreach ($models as $value): ?>
 			<div class="name">
-				<p>Parij</p>
-				<span>23.04.2023</span>
+				<p><?= $value->message ?></p>
+				<span><?= $value->date ?></span>
 			</div>
-			<div class="name">
-				<p>Parij</p>
-				<span>23.04.2023</span>
-			</div>
-			<div class="name">
-				<p>Parij</p>
-				<span>23.04.2023</span>
-			</div>
-			<div class="name">
-				<p>Parij</p>
-				<span>23.04.2023</span>
-			</div>
-			<div class="name">
-				<p>Parij</p>
-				<span>23.04.2023</span>
-			</div>
-			<div class="name">
-				<p>Parij</p>
-				<span>23.04.2023</span>
-			</div>
+			<?php endforeach; ?>
 		</div>
 
 	</div>
+
 	<!-- Koment yuborish joyi -->
 	<div class="user-comment-form">
 		<div>
 			Tashrif buyurgan joylar haqida tafsilotlar qoldirish
 		</div>
-		<form action="#" method="post" enctype="multipart/form-data">
+		<?php use yii\bootstrap\ActiveForm;
+		$form = ActiveForm::begin(['errorSummaryCssClass' => 'error-summary alert alert-danger']); ?>
 			<label for="title">Joy nomi:</label>
-			<input type="text" id="title" name="title" required>
+			<?= $form->field($model, 'message')->textInput(['style' => 'width: 100%','required' => true])->label(false) ?>
 
 			<label for="date">Borgan sanasi:</label>
-			<input type="date" id="date" name="date" required>
+		     <?= $form->field($model, 'date')->Input('date',['style' => 'width: 100%', 'required' => true])->label(false) ?>
 
 			<label for="image">Sayohatdan rasmlar:</label>
-			<div class="upload-wrapper">
-				<input type="file" id="image" name="image" accept="image/*" required>
-				<i class="fas fa-cloud-upload-alt "></i>
-			</div>
+
+				<?= $form->field($model, 'image')->textInput(['style' => 'width: 100%', 'required' => true])->label(false) ?>
+
 
 			<label for="description">Description:</label>
-			<textarea id="description" name="description" rows="5" required></textarea>
+		    <?= $form->field($model, 'description')->textarea(['required' => true])->label(false) ?>
 
 			<button type="submit" value="Submit"> Saqlash</button>
-		</form>
+			<?php ActiveForm::end(); ?>
 
 	</div>
 

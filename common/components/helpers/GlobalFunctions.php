@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
 
+use common\models\User;
 use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
@@ -245,4 +246,15 @@ function isJsonMK($string)
 function randomString(){
     $characters = 'abcdefghijklmnopqrstuvwxyz';
     return substr(str_shuffle($characters), 0, 6);
+}
+
+function user_random_id()
+{
+	$lastId = User::find()->select('id')->orderBy(['id' => SORT_DESC])->scalar() ?: 0;
+	return ++$lastId;
+}
+
+function getUserId()
+{
+	return Yii::$app->user->identity->getId();
 }

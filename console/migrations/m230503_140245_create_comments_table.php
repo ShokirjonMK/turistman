@@ -19,7 +19,7 @@ class m230503_140245_create_comments_table extends Migration
 		$this->createTable('{{%comments}}', [
             'id' => $this->primaryKey(),
 
-			'full_name' => $this->string(255)->notNull(),
+			'user_id' => $this->integer(11)->null(),
 
 			'description' => $this->string(255)->notNull(),
 			'message' => $this->string(255)->null(),

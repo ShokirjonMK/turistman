@@ -48,7 +48,12 @@ $modelsd = \common\models\SettingsHome::find()->sort_desc()->one();
                 <div class="right_part wow fadeInRight" id="quote" data-wow-duration="1s">
                     <div class="picman_tm_cform">
                         <h3 class="title">Login</h3>
-
+						<?php if (\Yii::$app->session->getFlash('success') !== null) : ?>
+                            <span class="alert alert-info alert-dismissible" role="alert">
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span></button>
+                            <?= \Yii::$app->session->getFlash('success') ?></span>
+						<?php endif; ?>
                         <?php $form = ActiveForm::begin(['errorSummaryCssClass' => 'error-summary alert alert-danger']); ?>
 
                         <div class="returnmessage" data-success="Your message has been received, We will contact you soon."></div>

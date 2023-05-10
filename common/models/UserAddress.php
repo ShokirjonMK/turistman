@@ -15,6 +15,7 @@ class UserAddress extends BaseUserAddress
     public $sera_num;
 
     public $date;
+    public $email;
 
     public function beforeSave($insert):bool
     {
@@ -44,7 +45,7 @@ class UserAddress extends BaseUserAddress
             parent::rules(),
             [
                 [['sera_num', 'date'], 'required'],
-                [['sera_num'], 'string', 'max' => 255],
+                [['sera_num', 'email'], 'string', 'max' => 255],
                 [['date'],  'safe'],
                 # custom validation rules
             ]
@@ -53,14 +54,15 @@ class UserAddress extends BaseUserAddress
 
     public function saveData($data)
     {
+		session_start();
 
         $user = new User();
-        $user->username = randomString();
+        $user->username = $data->name.'_'.user_random_id();
         $user->auth_key = \Yii::$app->security->generateRandomString(20);
-        $user->email = randomString().'@gmail.com';
-        $user->setPassword($data->name);
+        $user->email = $_SESSION['email'];
+		$pass = randomString();
+        $user->setPassword($pass);
         $user->generateEmailVerificationToken();
-
 
         $model = new UserAddress;
         $model->populateRelation('user', $user);
@@ -73,16 +75,24 @@ class UserAddress extends BaseUserAddress
         $model->birth_date = "$data->birth_date";
         $model->address = "$data->address";
 
+		Yii::$app->mailer->compose()
+		->setFrom(['tulqin484@gmail.com' => 'Turistman Group'])
+		->setTo(str_replace(" ", "", $_SESSION['email']))
+		->setSubject('Turistman success')
+		->setHtmlBody('<span>login: '.$user->username . '<br> parol: ' . $pass . ' </span>')
+		->send();
 
         $transaction = Yii::$app->db->beginTransaction();
         try {
+
             if (!$user->save()) {
                 throw new \Exception('Произошла ошибка при сохранении данных. User');
             }
             if (!$model->save(false)) {
                 throw new \Exception('Произошла ошибка при сохранении данных. UserAddress');
             }
-            Yii::$app->session->setFlash('success', Yii::t('ui', "Данные созданы успешно"));
+
+            Yii::$app->session->setFlash('success', Yii::t('ui', "Login va parol emailga yuborildi! "));
             $transaction->commit();
         } catch (\Exception $e) {
             Yii::$app->session->setFlash('error', Yii::t('ui', "Произошла ошибка. Пожалуйста, попробуйте еще раз") . $e->getMessage());

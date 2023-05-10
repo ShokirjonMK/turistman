@@ -49,6 +49,7 @@ class SignupController extends Controller
 				session_start();
                 $data = passport(passera($model), passera_num($model), $model->date);
                 $_SESSION['data'] = $data;
+				$_SESSION['email'] = $model->email;
                 if ($data !== null){
                     Yii::$app->session->setFlash('success', Yii::t('ui', "Данные созданы успешно"));
                     return $this->redirect(['signup/pasport']);
@@ -76,7 +77,7 @@ class SignupController extends Controller
 			$model = new UserAddress;
 			$model->saveData($data);
 			session_unset();
-			Yii::$app->session->setFlash('success', Yii::t('ui', "Данные созданы успешно"));
+			Yii::$app->session->setFlash('success', Yii::t('ui', "Login va parol emailga yuborildi!"));
 			return $this->redirect(['signup/login']);
 		}
 		if ($data != null){

@@ -38,6 +38,20 @@ return [
                 ],
             ],
         ],
+		'mailer' => [
+			'class' => 'yii\swiftmailer\Mailer',
+			'useFileTransport' => false,
+			'transport' => [
+				'class' => 'Swift_SmtpTransport',
+				'host' => 'smtp.gmail.com',
+				'username' => 'tulqin484@gmail.com',
+				'password' => 'srmplduqjkwbrymc',
+				'port' => '587',
+				'encryption' => 'tls',
+				'streamOptions' => [ 'ssl' => [ 'allow_self_signed' => false, 'verify_peer' => false, 'verify_peer_name' => false, ], ]
+			],
+
+		],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
