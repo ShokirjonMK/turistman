@@ -16,6 +16,7 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $price
  * @property integer $famous
  * @property string $message
+ * @property string $image
  * @property integer $status
  * @property integer $is_deleted
  * @property integer $created_at
@@ -59,7 +60,7 @@ abstract class PricingPlans extends \yii\db\ActiveRecord
     {
         return [
             [['price', 'famous', 'status', 'is_deleted'], 'integer'],
-            [['name', 'message'], 'string', 'max' => 255]
+            [['name', 'image', 'message'], 'string', 'max' => 255]
         ];
     }
 
@@ -71,6 +72,7 @@ abstract class PricingPlans extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('models', 'ID'),
             'name' => Yii::t('models', 'Name'),
+            'image' => Yii::t('models', 'image'),
             'price' => Yii::t('models', 'Price'),
             'famous' => Yii::t('models', 'Famous'),
             'message' => Yii::t('models', 'Message'),

@@ -1,4 +1,5 @@
 <?php
+$model = \common\models\PricingPlans::findOne($id)
 
 ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -20,7 +21,7 @@
             <div class="row" style="display: flex;">
                 <div class="list_item wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
                     <div class="item popular">
-                        <div class="top_part" style="background-image: url('https://www.shutterstock.com/image-illustration/technology-background-abstract-digital-combination-260nw-1795415125.jpg')">
+                        <div class="top_part" style="background-image: url(<?= $model->getPhotoSrc() ?>); background-size: cover">
                             <p>Popular</p>
                             <h4>Package 02</h4>
                             <h3 style="color: #fff">Umrah</h3>

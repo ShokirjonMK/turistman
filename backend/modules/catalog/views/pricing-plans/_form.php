@@ -1,5 +1,6 @@
 <?php
 
+use kartik\file\FileInput;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use \dmstr\bootstrap\Tabs;
@@ -45,6 +46,16 @@ use yii\helpers\StringHelper;
 
 <!-- attribute famous -->
 			<?= $form->field($model, 'famous')->textInput() ?>
+
+			<?= $form->field($model, 'photoFile')->widget(FileInput::class,
+				[
+					'pluginOptions' => [
+						'showPreview' => false,
+						'showCaption' => true,
+						'showRemove' => true,
+						'showUpload' => false,
+					]
+				]); ?>
 
 <!-- attribute status -->
 			<?= $form->field($model, 'status')->textInput() ?>

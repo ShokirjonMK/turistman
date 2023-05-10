@@ -19,7 +19,7 @@ public function rules()
 {
 return [
 [['id', 'price', 'famous', 'status', 'is_deleted', 'created_at', 'updated_at', 'created_by', 'updated_by'], 'integer'],
-            [['name', 'message'], 'safe'],
+            [['name', 'image', 'message'], 'safe'],
 ];
 }
 
@@ -68,7 +68,8 @@ $query->andFilterWhere([
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'message', $this->message]);
+            ->andFilterWhere(['like', 'message', $this->message])
+            ->andFilterWhere(['like', 'image', $this->image]);
 
 return $dataProvider;
 }

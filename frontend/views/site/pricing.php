@@ -18,7 +18,7 @@ $model = \common\models\PricingPlans::find()->limit(3)->orderBy(['id' => SORT_DE
                     <?php foreach ($model as $value): ?>
 					<li class="list_item wow fadeInUp" data-wow-duration="1s" >
 						<div class="item">
-                            <div class="top_part" style="background-image: url('https://www.shutterstock.com/image-illustration/technology-background-abstract-digital-combination-260nw-1795415125.jpg')">
+                            <div class="top_part" style="background-image: url(<?=$value->getPhotoSrc()?>); background-size: cover">
                                 <p><?php if ($value->famous == 1){echo 'Popular';} ?></p>
 								<h4>Package 01</h4>
 								<h3 style="color: #fff"><?=$value->name?></h3>

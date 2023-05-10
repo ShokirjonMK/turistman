@@ -109,7 +109,7 @@ class SiteController extends Controller
 
 	public function actionPricing($id = null)
     {
-        return $this->render('tour-pricing');
+        return $this->render('tour-pricing', ['id'=>$id]);
     }
 
 	public function actionPricings($id = null)

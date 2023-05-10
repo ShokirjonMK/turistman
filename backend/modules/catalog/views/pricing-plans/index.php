@@ -110,6 +110,13 @@ $actionColumnTemplateString = '<div class="action-buttons">'.$actionColumnTempla
 			'is_deleted',
 			'name',
 			'message',
+			[
+				'attribute' => 'image',
+				'value' => function (\common\models\PricingPlans $model){
+					return $model->getPhotoSrc();
+				},
+				'format' => ['image', ['width' => 100, 'height' => 50]]
+			],
                 ]
         ]); ?>
     </div>
