@@ -1,6 +1,6 @@
 # IMAF Yii2 Starter Kit
 
-1 git clone https://github.com/Muxtorov98/yii2advanced.git
+1 git clone https://github.com/ShokirjonMK/turistman.git
 
 
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
